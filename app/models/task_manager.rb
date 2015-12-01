@@ -3,7 +3,7 @@ require_relative 'task'
 
 class TaskManager
   def self.database
-    @database ||= YAML::Store.new("db/task_manager")
+    @database ||= YAML::Store.new('db/task_manager')
   end
 
   def self.create(task)
@@ -11,7 +11,7 @@ class TaskManager
       database['tasks'] ||= []
       database['total'] ||= 0
       database['total'] += 1
-      database['tasks'] << { "id" => database['total'], "title" => task[:title], "description" => task[:description] }
+      database['tasks'] << { 'id' => database['total'], 'title' => task[:title], 'description' => task[:description] }
     end
   end
 
@@ -26,10 +26,24 @@ class TaskManager
   end
 
   def self.raw_task(id)
-    raw_tasks.find { |task| task["id"] == id }
+    raw_tasks.find { |task| task['id'] == id }
   end
 
   def self.find(id)
     Task.new(raw_task(id))
+  end
+
+  def self.update(id, task)
+   database.transaction do
+     target = database['tasks'].find { |data| data['id'] == id }
+     target['title'] = task[:title]
+     target['description'] = task[:description]
+   end
+  end
+
+  def self.delete(id)
+   database.transaction do
+     database['tasks'].delete_if { |task| task["id"] == id }
+   end
   end
 end

@@ -1,8 +1,5 @@
 ---
 tasks:
-- id: 1
-  title: Coffee
-  description: Drink it!
 - id: 2
   title: Food
   description: Eat it!
@@ -10,6 +7,15 @@ tasks:
   title: Laundry
   description: Do it!
 - id: 4
-  title: More coffee
-  description: Drink more!
-total: 4
+  title: coffee
+  description: Drink it!
+- id: 5
+  title: Exercise
+  description: Get some!
+- id: 6
+  title: Mark!
+  description: Hug him!!
+- id: 7
+  title: Save the world!
+  description: No big deal.
+total: 7

@@ -1,5 +1,6 @@
-body, html {
-  /*background-image: url(/images/misty-forest.jpg);*/
+body {
+  background-size: cover;
+  background-image: url('/images/misty-forest.jpeg')
 }
 
 h1 {
@@ -9,10 +10,11 @@ h1 {
   padding: 10px;
   width: 100%;
   text-align: center;
-  font-family: "Cochin", monospace;
+  font-family: "Amatic SC", monospace;
 }
 
-ul {
-  font-family: "Cochin", monospace;
+ul, h3, form, p {
+  font-family: "Amatic SC", monospace;
   font-weight: bold;
+  font-size: 24px;
 }
